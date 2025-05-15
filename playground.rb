@@ -11,3 +11,15 @@ puts "Welcome to the authenticator"
 puts
 puts "This program will take input from the user and compare password"
 puts "If password is correct, you will get back the user object"
+
+attemps = 1
+while attemps < 4
+    print "Username: "
+    username = gets.chomp
+    print "Password: "
+    password = gets.chomp
+    puts "Press n to quit or any other key to continue: "
+    input = gets.chomp.downcase
+    break if input == "n"
+    attemps += 1
+end
