@@ -1,41 +1,12 @@
-dial_book = {
-  "newyork" => "212",
-  "newbrunswick" => "732",
-  "edison" => "908",
-  "plainsboro" => "609",
-  "sanfrancisco" => "301",
-  "miami" => "305",
-  "paloalto" => "650",
-  "evanston" => "847",
-  "orlando" => "407",
-  "lancaster" => "717"
-}
+require_relative 'crud'
 
-def get_city_names(somehash)
-  somehash.keys.each do |key|
-    puts "#{key} "
-  end
-end
+users = [
+    { username: "Pole", password: "password1"},
+    { username: "Koga", password: "password2"},
+    { username: "Jeforry", password: "password3"},
+    { username: "Cristian", password: "password4"},
+    { username: "Fransico", password: "password5"}
+]
 
-def get_area_code(somehash, key)
-  return somehash[key]
-end
-
-loop do
-
-  puts "Welcome to Area code dictionary"
-  25.times { print "-" }
-  puts
-  puts "Here are city names you can see"
-  get_city_names(dial_book)
-  puts "Enter the city name which you get the code for"
-  city_name = gets.chomp
-  code = get_area_code(dial_book, city_name)
-  puts "This is the code: #{code}"
-
-
-  puts "Are you continue to find area code? Y/N";
-  answer = gets.chomp
-  break if answer != "y"
-end
-
+hashed_users = Crud.create_secure_users(users)
+puts hashed_users
